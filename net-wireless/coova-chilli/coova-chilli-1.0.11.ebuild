@@ -34,7 +34,7 @@ src_install() {
 
 pkg_postinst() {
 	elog "$MY_PN uses RADIUS for access provisioning and accounting so be sure"
-	elog "to install and configure a RADIUS server before using $MY_PN"
+	elog "to install and configure a RADIUS server before using ${MY_PN}."
 	elog "Gentoo-wiki has a nice guide regarding this (uses Freeradius):"
-	elog "http://en.gentoo-wiki.com/wiki/Chillispot_with_FreeRadius_and_MySQL"
+	elog "  http://en.gentoo-wiki.com/wiki/Chillispot_with_FreeRadius_and_MySQL"
 }
