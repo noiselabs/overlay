@@ -18,11 +18,6 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
-src_compile() {
-	econf
-	emake || die "emake failed"
-}
-
 src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
 
