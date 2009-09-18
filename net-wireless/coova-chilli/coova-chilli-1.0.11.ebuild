@@ -15,9 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
-RDEPEND=""
-
 src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
 
