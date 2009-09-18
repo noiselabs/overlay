@@ -6,7 +6,7 @@ inherit eutils
 
 MY_PN="CoovaChilli"
 DESCRIPTION="CoovaChilli is an open-source software access controller, based on
-the popular (but now defunct) ChilliSpot project."
+the ChilliSpot project."
 HOMEPAGE="http://coova.org/wiki/index.php/CoovaChilli"
 SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
