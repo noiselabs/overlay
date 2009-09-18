@@ -7,7 +7,7 @@ inherit eutils
 MY_PN="CoovaChilli"
 DESCRIPTION="CoovaChilli is an open-source software access controller, based on
 the ChilliSpot project."
-HOMEPAGE="http://coova.org/wiki/index.php/CoovaChilli"
+HOMEPAGE="http://www.coova.org/CoovaChilli"
 SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -19,7 +19,7 @@ DEPEND=""
 RDEPEND=""
 
 src_compile() {
-	econf || die "econf failed"
+	econf
 	emake || die "emake failed"
 }
 
@@ -27,9 +27,10 @@ src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
 
 	# We need to overwrite the provided init script
-	doinitd "${FILESDIR}"/chilli
+	doinitd "${FILESDIR}"/chilli || die "doinitd failed"
 
-	dodoc doc/hotspotlogin.cgi "${FILESDIR}"/firewall.iptables
+	dodoc doc/hotspotlogin.cgi "${FILESDIR}"/firewall.iptables || die "dodoc
+	failed"
 }
 
 pkg_postinst() {
