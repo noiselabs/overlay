@@ -1,0 +1,3 @@
+=net-wireless/coova-chilli-1.0.14
+=net-wireless/coova-chilli-1.2.2
+
