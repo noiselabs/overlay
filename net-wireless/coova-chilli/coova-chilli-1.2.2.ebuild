@@ -7,8 +7,7 @@ EAPI="2"
 inherit eutils
 
 MY_PN="CoovaChilli"
-DESCRIPTION="CoovaChilli is an open-source software access controller, based on
-the ChilliSpot project."
+DESCRIPTION="Coova-Chilli is a Wireless LAN Access Point Controller"
 HOMEPAGE="http://www.coova.org/CoovaChilli"
 SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
