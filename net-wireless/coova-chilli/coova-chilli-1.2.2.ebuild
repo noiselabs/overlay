@@ -7,14 +7,14 @@ EAPI="2"
 inherit eutils
 
 MY_PN="CoovaChilli"
-DESCRIPTION="Coova-Chilli is a Wireless LAN Access Point Controller"
+DESCRIPTION="CoovaChilli is a Wireless LAN Access Point Controller"
 HOMEPAGE="http://www.coova.org/CoovaChilli"
 SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="ssl"
+KEYWORDS="~amd64 ~x86"
+IUSE="curl ipc-msg matrixssl mmap nfqueue openssl pcap poll"
 
 src_configure() {
 	econf \

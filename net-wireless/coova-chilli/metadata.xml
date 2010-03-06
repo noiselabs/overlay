@@ -2,6 +2,16 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>maintainer-wanted</herd>
+<use>
+	<flag name="curl">Enable support for curl</curl>
+	<flag name="ipc-msg">Enable support for msgsnd/msgrcv SV IPC</flag>
+	<flag name="matrixssl">Enable support for matrixssl</flag>
+	<flag name="mmap">Enable support for mmap</flag>
+	<flag name="nfqueue">Enable support for netfilter_queue</flag>
+	<flag name="openssl">Enable support for openssl</flag>
+	<flag name="pcap">Enable support for pcap</flag>
+	<flag name="poll">Enable support for poll</flag>
+</use>
 <longdescription>
 Coova-Chilli is a fork of the ChilliSpot project - an open source captive
 portal or wireless LAN access point controller. It supports web based login
