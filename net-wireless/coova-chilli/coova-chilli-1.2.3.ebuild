@@ -14,12 +14,50 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="ssl"
+KEYWORDS="~amd64 ~x86"
+IUSE="curl matrixssl mmap nfcoova nfqueue openssl pcap poll ssl"
+
+RDEPEND=""
+DEPEND="${RDEPEND}
+	curl? ( net-misc/curl )
+	matrixssl? ( dev-libs/matrixssl )
+	nfcoova? ( net-libs/libnfnetlink
+		net-libs/libnetfilter_queue )
+	nfqueue? ( net-libs/libnfnetlink
+		net-libs/libnetfilter_queue )
+	openssl? ( 
+		!matrixssl? ( dev-libs/openssl )
+	)
+	pcap? ( net-libs/libpcap )
+	ssl? ( 
+		!matrixssl? ( dev-libs/openssl )
+	)"
 
 src_configure() {
-	econf \
-		$(use_with ssl openssl )
+	#Prefer matrixssl over openssl
+	if use matrixssl ; then
+		myconf="${myconf} --with-matrixssl"
+	elif use openssl || use ssl; then
+		myconf="${myconf} --with-openssl"
+	fi
+
+	myconf="${myconf}
+		$(use_with curl )
+		$(use_with mmap )
+		$(use_with nfcoova )
+		$(use_with nfqueue )
+		$(use_with pcap )
+		$(use_with poll )"
+
+	# Add some interesting (aka The Ones That Compile) features
+	myconf="${myconf}
+		--enable-chilliscript
+		--enable-ewtapi
+		--enable-miniportal
+		--enable-pppoe
+		--enable-statusfile"
+
+	econf ${myconf}
 }
 
 src_install() {
