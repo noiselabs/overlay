@@ -34,7 +34,7 @@ DEPEND="${RDEPEND}
 	)"
 
 src_configure() {
-	#Prefer matrixssl over openssl
+	# Prefer matrixssl over openssl (because it's "more exotic")
 	if use matrixssl ; then
 		myconf="${myconf} --with-matrixssl"
 	elif use openssl || use ssl; then
