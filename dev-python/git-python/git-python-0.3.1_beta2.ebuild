@@ -6,11 +6,11 @@ EAPI="3"
 PYTHON_DEPEND="2"
 SUPPORT_PYTHON_ABIS="1"
 
-inherit distutils
+inherit distutils versionator
 
 MY_PN="GitPython"
-MY_P="${P/_/-}"
-MY_PV="${PV/_/-}"
+MY_PV=$(replace_version_separator 3 '-')
+MY_P="${MY_PN}-${PV/_beta*/}"
 
 DESCRIPTION="GitPython is a python library used to interact with Git repositories."
 HOMEPAGE="http://gitorious.org/git-python http://pypi.python.org/pypi/GitPython"
