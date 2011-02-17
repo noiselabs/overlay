@@ -33,12 +33,16 @@ DEPEND="${RDEPEND}
 		!matrixssl? ( dev-libs/openssl )
 	)"
 
+src_prepare() {
+	use openssl && 	epatch "${FILESDIR}"/${P}-disable-werror.patch
+}
+
 src_configure() {
 	# Prefer matrixssl over openssl (because it's "more exotic")
 	if use matrixssl ; then
 		myconf="${myconf} --with-matrixssl"
 	elif use openssl || use ssl; then
-		myconf="${myconf} --with-openssl"
+		myconf="${myconf} --with-openssl --disable-werror"
 	fi
 
 	myconf="${myconf}
