@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}
 		!matrixssl? ( dev-libs/openssl )
 	)
 	pcap? ( net-libs/libpcap )
-	ssl? ( 
+	ssl? (
 		!matrixssl? ( dev-libs/openssl )
 	)"
 

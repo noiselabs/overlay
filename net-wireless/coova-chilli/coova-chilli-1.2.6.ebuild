@@ -25,11 +25,11 @@ DEPEND="${RDEPEND}
 		net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnfnetlink
 		net-libs/libnetfilter_queue )
-	openssl? ( 
+	openssl? (
 		!matrixssl? ( dev-libs/openssl )
 	)
 	pcap? ( net-libs/libpcap )
-	ssl? ( 
+	ssl? (
 		!matrixssl? ( dev-libs/openssl )
 	)"
 
