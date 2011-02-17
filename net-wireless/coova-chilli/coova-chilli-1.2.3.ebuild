@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 		net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnfnetlink
 		net-libs/libnetfilter_queue )
-	openssl? ( 
+	openssl? (
 		!matrixssl? ( dev-libs/openssl )
 	)
 	pcap? ( net-libs/libpcap )
