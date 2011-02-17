@@ -34,7 +34,9 @@ DEPEND="${RDEPEND}
 	)"
 
 src_prepare() {
-	use openssl && 	epatch "${FILESDIR}"/${P}-disable-werror.patch
+	if use openssl || use ssl ; then
+		epatch "${FILESDIR}"/${P}-disable-werror.patch
+	fi
 }
 
 src_configure() {
