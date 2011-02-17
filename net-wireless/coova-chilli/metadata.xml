@@ -12,6 +12,14 @@
 	<flag name="openssl">Enable support for openssl</flag>
 	<flag name="pcap">Enable support for pcap</flag>
 	<flag name="poll">Enable support for poll</flag>
+	<!-- New in 1.2.6 -->
+	<flag name="layer3">Enable a Layer3 (IP-Only) style captive portal - no
+	DHCP</flag><flag name="uamdomainfile">Load regex style uamdomains</flag>
+	<flag name="redirdnsreq">Have chilli send a DNS query for the hostname found
+	in the redirect (useful when relying heavily on DNS based walled garden
+	using uamdomain or uamdomainfile)</flag>
+	<flag name="dhcpopt">Enable the usage of the command line option
+	--dhcpopt <hex-encoded-binary-dhcp-option></flag>
 </use>
 <longdescription>
 Coova-Chilli is a fork of the ChilliSpot project - an open source captive
