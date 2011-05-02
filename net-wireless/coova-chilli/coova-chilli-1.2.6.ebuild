@@ -7,8 +7,7 @@ EAPI="2"
 inherit eutils
 
 MY_PN="CoovaChilli"
-DESCRIPTION="CoovaChilli is an open-source software access controller, based on
-the ChilliSpot project."
+DESCRIPTION="CoovaChilli is an open-source software access controller, based on the ChilliSpot project"
 HOMEPAGE="http://www.coova.org/CoovaChilli"
 SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
@@ -25,9 +24,6 @@ DEPEND="${RDEPEND}
 		net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnfnetlink
 		net-libs/libnetfilter_queue )
-	openssl? (
-		!matrixssl? ( dev-libs/openssl )
-	)
 	pcap? ( net-libs/libpcap )
 	ssl? (
 		!matrixssl? ( dev-libs/openssl )
@@ -40,10 +36,11 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf
 	# Prefer matrixssl over openssl (because it's "more exotic")
 	if use matrixssl ; then
 		myconf="${myconf} --with-matrixssl"
-	elif use openssl || use ssl; then
+	elif use ssl; then
 		myconf="${myconf} --with-openssl --disable-werror"
 	fi
 
@@ -77,8 +74,7 @@ src_install() {
 	# We need to overwrite the provided init script
 	doinitd "${FILESDIR}"/chilli || die "doinitd failed"
 
-	dodoc doc/hotspotlogin.cgi "${FILESDIR}"/firewall.iptables || die "dodoc
-	failed"
+	dodoc doc/hotspotlogin.cgi "${FILESDIR}"/firewall.iptables || die "dodoc failed"
 }
 
 pkg_postinst() {
