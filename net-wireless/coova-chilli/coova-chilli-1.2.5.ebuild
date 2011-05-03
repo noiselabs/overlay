@@ -15,7 +15,7 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl matrixssl mmap nfcoova nfqueue openssl pcap poll ssl"
+IUSE="curl matrixssl mmap nfcoova nfqueue pcap ssl"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 		net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnfnetlink
 		net-libs/libnetfilter_queue )
-	openssl? (
+	ssl? (
 		!matrixssl? ( dev-libs/openssl )
 	)
 	pcap? ( net-libs/libpcap )
@@ -37,7 +37,7 @@ src_configure() {
 	# Prefer matrixssl over openssl (because it's "more exotic")
 	if use matrixssl ; then
 		myconf="${myconf} --with-matrixssl"
-	elif use openssl || use ssl; then
+	elif use ssl; then
 		myconf="${myconf} --with-openssl"
 	fi
 
@@ -46,8 +46,7 @@ src_configure() {
 		$(use_with mmap )
 		$(use_with nfcoova )
 		$(use_with nfqueue )
-		$(use_with pcap )
-		$(use_with poll )"
+		$(use_with pcap )"
 
 	# Add some interesting (aka The Ones That Compile) features
 	myconf="${myconf}

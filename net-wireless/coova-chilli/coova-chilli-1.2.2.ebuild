@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl ipc-msg matrixssl mmap nfqueue openssl pcap poll"
+IUSE="curl matrixssl mmap nfqueue pcap"
 
 src_configure() {
 	econf \

@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit eutils
+inherit autotools eutils
 
 MY_PN="CoovaChilli"
 DESCRIPTION="CoovaChilli is an open-source software access controller, based on the ChilliSpot project"
@@ -14,7 +14,7 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl dhcpopt layer3 matrixssl mmap nfcoova nfqueue openssl pcap poll redirdnsreq ssl uamdomainfile"
+IUSE="curl debug matrixssl mmap nfcoova nfqueue pcap ssl"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -30,40 +30,64 @@ DEPEND="${RDEPEND}
 	)"
 
 src_prepare() {
-	if use openssl || use ssl ; then
-		epatch "${FILESDIR}"/${P}-disable-werror.patch
-	fi
+	epatch "${FILESDIR}"/${P}-disable-werror.patch
+	eautomake
 }
 
 src_configure() {
 	local myconf
-	# Prefer matrixssl over openssl (because it's "more exotic")
-	if use matrixssl ; then
-		myconf="${myconf} --with-matrixssl"
-	elif use ssl; then
-		myconf="${myconf} --with-openssl --disable-werror"
-	fi
+	local sslconf
 
-	myconf="${myconf}
-		$(use_with curl )
-		$(use_with mmap )
-		$(use_with nfcoova )
-		$(use_with nfqueue )
-		$(use_with pcap )
-		$(use_with poll )
-		$(use_enable layer3 )
-		$(use_enable uamdomainfile)
-		$(use_enable redirdnsreq)
-		$(use_enable dhcpopt)"
-
-	# Add some interesting (aka The Ones That Compile) features
-	myconf="${myconf}
+	myconf="--enable-dhcpopt
+		--enable-sessgarden
+		--enable-chillixml
+		--enable-proxyvsa
+		--enable-dnslog
+		--enable-ipwhitelist
+		--enable-uamdomainfile
+		--enable-redirdnsreq
+		--enable-largelimits
+		--enable-binstatusfile
+		--enable-statusfile
+		--enable-multiroute
+		--enable-chilliredir
+		--enable-redirinject
 		--enable-chilliscript
+		--enable-bonjour
+		--enable-netbios
+		--enable-ieee8023
 		--enable-ewtapi
 		--enable-miniportal
 		--enable-pppoe
-		--enable-statusfile
-		-enable-modules"
+		--enable-eapol
+		--enable-miniportal
+		--enable-ewtapi
+		--enable-libjson
+		--enable-ssdp
+		--enable-layer3
+		--with-poll
+		--with-lookup3"
+
+	myconf="${myconf}
+		$(use_enable debug debug2)
+		$(use_with mmap )
+		$(use_with nfcoova )
+		$(use_with nfqueue )
+		$(use_with pcap )"
+
+	# CURL options
+	if use curl ; then
+		myconf="${myconf} --with-curl --enable-chilliproxy"
+	fi
+
+	# SSL options
+	sslconf="--enable-chilliradsec --enable-cluster"
+	# Prefer matrixssl over openssl (because it's "more exotic")
+	if use matrixssl ; then
+		myconf="${myconf} --with-matrixssl --with-matrixssl-cli ${sslconf}"
+	elif use ssl; then
+		myconf="${myconf} --with-openssl ${sslconf}"
+	fi
 
 	econf ${myconf}
 }
