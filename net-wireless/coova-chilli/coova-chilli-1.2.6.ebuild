@@ -14,13 +14,12 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl debug matrixssl mmap nfcoova nfqueue pcap ssl"
+IUSE="curl debug matrixssl mmap nfqueue pcap ssl"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
 	curl? ( net-misc/curl )
 	matrixssl? ( dev-libs/matrixssl )
-	nfcoova? ( net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnetfilter_queue )
 	pcap? ( net-libs/libpcap )
 	ssl? (
@@ -82,7 +81,6 @@ src_configure() {
 		--with-lookup3 \
 		$(use_enable debug debug2) \
 		$(use_with mmap ) \
-		$(use_with nfcoova ) \
 		$(use_with nfqueue ) \
 		$(use_with pcap ) \
 		${myconf}
@@ -100,6 +98,6 @@ src_install() {
 pkg_postinst() {
 	elog "$MY_PN uses RADIUS for access provisioning and accounting so be sure"
 	elog "to install and configure a RADIUS server before using ${MY_PN}."
-	elog "Gentoo-wiki has a nice guide regarding this (uses Freeradius):"
+	elog "Gentoo-Wiki has a nice guide regarding this (uses Freeradius):"
 	elog "  http://en.gentoo-wiki.com/wiki/Chillispot_with_FreeRadius_and_MySQL"
 }
