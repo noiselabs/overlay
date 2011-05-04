@@ -20,10 +20,8 @@ RDEPEND=""
 DEPEND="${RDEPEND}
 	curl? ( net-misc/curl )
 	matrixssl? ( dev-libs/matrixssl )
-	nfcoova? ( net-libs/libnfnetlink
-		net-libs/libnetfilter_queue )
-	nfqueue? ( net-libs/libnfnetlink
-		net-libs/libnetfilter_queue )
+	nfcoova? ( net-libs/libnetfilter_queue )
+	nfqueue? ( net-libs/libnetfilter_queue )
 	pcap? ( net-libs/libpcap )
 	ssl? (
 		!matrixssl? ( dev-libs/openssl )
@@ -37,43 +35,6 @@ src_prepare() {
 src_configure() {
 	local myconf
 	local sslconf
-
-	myconf="--enable-dhcpopt
-		--enable-sessgarden
-		--enable-chillixml
-		--enable-proxyvsa
-		--enable-dnslog
-		--enable-ipwhitelist
-		--enable-uamdomainfile
-		--enable-redirdnsreq
-		--enable-largelimits
-		--enable-binstatusfile
-		--enable-statusfile
-		--enable-multiroute
-		--enable-chilliredir
-		--enable-redirinject
-		--enable-chilliscript
-		--enable-bonjour
-		--enable-netbios
-		--enable-ieee8023
-		--enable-ewtapi
-		--enable-miniportal
-		--enable-pppoe
-		--enable-eapol
-		--enable-miniportal
-		--enable-ewtapi
-		--enable-libjson
-		--enable-ssdp
-		--enable-layer3
-		--with-poll
-		--with-lookup3"
-
-	myconf="${myconf}
-		$(use_enable debug debug2)
-		$(use_with mmap )
-		$(use_with nfcoova )
-		$(use_with nfqueue )
-		$(use_with pcap )"
 
 	# CURL options
 	if use curl ; then
@@ -89,7 +50,42 @@ src_configure() {
 		myconf="${myconf} --with-openssl ${sslconf}"
 	fi
 
-	econf ${myconf}
+	econf \
+		--enable-dhcpopt \
+		--enable-sessgarden \
+		--enable-chillixml \
+		--enable-proxyvsa \
+		--enable-dnslog \
+		--enable-ipwhitelist \
+		--enable-uamdomainfile \
+		--enable-redirdnsreq \
+		--enable-largelimits \
+		--enable-binstatusfile \
+		--enable-statusfile \
+		--enable-multiroute \
+		--enable-chilliredir \
+		--enable-redirinject \
+		--enable-chilliscript \
+		--enable-bonjour \
+		--enable-netbios \
+		--enable-ieee8023 \
+		--enable-ewtapi \
+		--enable-miniportal \
+		--enable-pppoe \
+		--enable-eapol \
+		--enable-miniportal \
+		--enable-ewtapi \
+		--enable-libjson \
+		--enable-ssdp \
+		--enable-layer3 \
+		--with-poll \
+		--with-lookup3 \
+		$(use_enable debug debug2) \
+		$(use_with mmap ) \
+		$(use_with nfcoova ) \
+		$(use_with nfqueue ) \
+		$(use_with pcap ) \
+		${myconf}
 }
 
 src_install() {
