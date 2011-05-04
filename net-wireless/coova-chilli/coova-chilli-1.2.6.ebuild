@@ -14,12 +14,13 @@ SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl debug matrixssl mmap nfqueue pcap ssl"
+IUSE="curl debug matrixssl mmap nfcoova nfqueue pcap ssl"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
 	curl? ( net-misc/curl )
 	matrixssl? ( dev-libs/matrixssl )
+	nfcoova? ( net-libs/libnetfilter_queue )
 	nfqueue? ( net-libs/libnetfilter_queue )
 	pcap? ( net-libs/libpcap )
 	ssl? (
@@ -28,6 +29,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-disable-werror.patch
+	epatch "${FILESDIR}"/${P}-fPIC.patch
 	eautomake
 }
 
@@ -81,6 +83,7 @@ src_configure() {
 		--with-lookup3 \
 		$(use_enable debug debug2) \
 		$(use_with mmap ) \
+		$(use_with nfcoova ) \
 		$(use_with nfqueue ) \
 		$(use_with pcap ) \
 		${myconf}
