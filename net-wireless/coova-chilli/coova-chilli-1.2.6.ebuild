@@ -9,7 +9,8 @@ inherit autotools eutils
 MY_PN="CoovaChilli"
 DESCRIPTION="CoovaChilli is an open-source software access controller, based on the ChilliSpot project"
 HOMEPAGE="http://www.coova.org/CoovaChilli"
-SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
+SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz
+		 http://distfiles.noiselabs.org/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -29,7 +30,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-disable-werror.patch
-	epatch "${FILESDIR}"/${P}-fPIC.patch
+	epatch "${FILESDIR}"/${P}-nfcoova.patch
 	eautomake
 }
 

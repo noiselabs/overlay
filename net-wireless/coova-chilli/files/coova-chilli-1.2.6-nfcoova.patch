@@ -1,0 +1,24 @@
+--- src/linux/Makefile	2010-07-08 14:24:37.000000000 +0100
++++ src/linux/Makefile.new	2011-05-04 17:32:42.000000000 +0100
+@@ -1,4 +1,4 @@
+-KERNEL_DIR ?= /usr/src/linux-headers-$(shell uname -r)
++KERNEL_DIR ?= /usr/src/linux-$(shell uname -r)
+ 
+ obj-m += xt_coova.o
+ 
+@@ -21,7 +21,7 @@
+ 	$(CC) $(CFLAGS) -shared -o $@ $^;
+ 
+ lib%.o: lib%.c
+-	$(CC) $(CFLAGS) -O2 -Wall -I${KERNEL_DIR}/include -D_INIT=lib$*_init -c -o $@ $<;
++	$(CC) $(CFLAGS) -fPIC -O2 -Wall -I${KERNEL_DIR}/include -D_INIT=lib$*_init -c -o $@ $<;
+ 
+ install: modules_install libxt_coova.so
+ 	mkdir -p $(DESTDIR)/lib/xtables/
+@@ -29,4 +29,4 @@
+ 
+ distdir:
+ 
+-distclean: clean
+\ No newline at end of file
++distclean: clean
