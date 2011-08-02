@@ -9,8 +9,7 @@ SUPPORT_PYTHON_ABIS="1"
 inherit distutils versionator
 
 MY_PN="GitPython"
-MY_PV=$(replace_version_separator 3 '.')
-MY_PV=${MY_PV/rc/RC}
+MY_PV="${PV/_rc/.RC}"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="GitPython is a python library used to interact with Git repositories."
