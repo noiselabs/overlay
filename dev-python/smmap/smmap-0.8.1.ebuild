@@ -8,9 +8,8 @@ SUPPORT_PYTHON_ABIS="1"
 
 inherit distutils
 
-DESCRIPTION="Async is a framework to process interdependent tasks in a pool of
-workers"
-HOMEPAGE="https://github.com/gitpython-developers/gitdb"
+DESCRIPTION="A pure git implementation of a sliding window memory map manager"
+HOMEPAGE="https://github.com/Byron/smmap"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
