@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>python</herd>
-<maintainer>
-	<email>noisebleed@noiselabs.org</email>
-	<name>Vítor Brandão (noisebleed)</name>
-</maintainer>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>noisebleed@noiselabs.org</email>
+		<name>Vítor Brandão (noisebleed)</name>
+	</maintainer>
+	<longdescription lang="en">
+		When reading from many possibly large files in a fashion similar to random access, it is usually the fastest and most efficient to use memory maps.
+
+		Although memory maps have many advantages, they represent a very limited system resource as every map uses one file descriptor, whose amount is limited per process. On 32 bit systems, the amount of memory you can have mapped at a time is naturally limited to theoretical 4GB of memory, which may not be enough for some applications.
+	</longdescription>
 </pkgmetadata>
