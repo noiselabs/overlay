@@ -12,7 +12,7 @@ SRC_URI="http://distfiles.noiselabs.org/${P}.tar.bz2"
 
 LICENSE="YOONO"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""
