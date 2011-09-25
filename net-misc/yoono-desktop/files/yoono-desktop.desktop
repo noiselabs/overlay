@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Yoono Desktop
+Comment=Desktop application to unify your social inbox (Facebook, Twitter, LinkedIn, Youtube, Foursquare, ...)
+Comment[pt_PT]=Aplicação para unificar serviços sociais como Facebook, Twitter, LinkedIn, Youtube, Foursquare, etc.
+Exec=/usr/bin/yoono-desktop
+Icon=yoono-desktop-icon
+Terminal=false
+Type=Application
+Categories=Network;
