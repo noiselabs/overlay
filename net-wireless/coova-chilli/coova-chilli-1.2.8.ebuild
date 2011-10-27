@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PV}/${PN}-disable-werror.patch
-	epatch "${FILESDIR}"/${PV}/${PN}-nfcoova.patch
+	epatch "${FILESDIR}"/${PV}/${PN}-kernel-dir.patch
 	eautomake
 }
 

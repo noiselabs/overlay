@@ -1,0 +1,15 @@
+--- src/linux/Makefile	2011-06-14 10:35:46.000000000 +0100
++++ src/linux/Makefile.fixed	2011-10-27 10:57:30.000000000 +0100
+@@ -1,4 +1,4 @@
+-KERNEL_DIR ?= /usr/src/linux-headers-$(shell uname -r)
++KERNEL_DIR ?= /usr/src/linux-$(shell uname -r)
+ 
+ obj-m += xt_coova.o
+ 
+@@ -29,4 +29,4 @@
+ 
+ distdir:
+ 
+-distclean: clean
+\ No newline at end of file
++distclean: clean
