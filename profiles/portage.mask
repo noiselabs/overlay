@@ -1,4 +1,4 @@
-=net-wireless/coova-chilli-1.0.14
-=net-wireless/coova-chilli-1.2.2
-=net-wireless/coova-chilli-1.2.8
+# Vítor Brandão <noisebleed@noiselabs.org> (28 Nov 2012)
+# Masked for testing.
+>=net-wireless/coova-chilli-1.3.0
 

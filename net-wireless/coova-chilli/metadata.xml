@@ -3,10 +3,15 @@
 <pkgmetadata>
 <herd></herd>
 <use>
+    <flag name="cyassl">Enable support for CyaSSL (lightweight SSL/TLS library targeted at embedded and RTOS environments)</flag>
 	<flag name="debug">Enable verbose debugging</flag>
-	<flag name="matrixssl">Enable support for matrixssl</flag>
+	<flag name="embedded">Disable larger limits for use with embedded systems</flag>
+	<flag name="matrixssl">Enable support for MatrixSSL (embedded SSL implementation)</flag>
+    <flag name="mdns">Enable support for Multicast DNS (mDNS)</flag>
+    <flag name="netbios">Enable support for NetBIOS</flag>
 	<flag name="nfcoova">Enable support for Coova Netfilter kernel module</flag>
 	<flag name="nfqueue">Enable support for netfilter_queue</flag>
+    <flag name="openssl">Enable support for OpenSSL</flag>
 	<flag name="pcap">Enable support for pcap</flag>
 </use>
 <longdescription>
