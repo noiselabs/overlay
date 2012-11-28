@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit autotools eutils
 
@@ -18,7 +18,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="curl cyassl debug embedded matrixssl mdns mmap netbios nfcoova nfqueue openssl pcap ssl"
-REQUIRED_USE="^^ ( cyassl matrixssl openssl )"
+REQUIRED_USE="?? ( cyassl matrixssl openssl )"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
