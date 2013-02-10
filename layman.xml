@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[noiselabs]]></name>
+    <description><![CDATA[noiselabs.org Gentoo Overlay]]></description>
+    <homepage>http://overlay.noiselabs.org</homepage>
+    <owner>
+      <email>noisebleed@noiselabs.org</email>
+      <name><![CDATA[Vítor Brandão (noisebleed)]]></name>
+    </owner>
+    <source type="git">git://github.com/noiselabs/overlay.git</source>
+  </repo>
+</repositories>
