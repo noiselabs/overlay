@@ -11,7 +11,7 @@ Installation
 ```bash
 # USE="git" emerge layman
 # layman -L
-
+```
 
 ### Add the noiselabs overlay
 
