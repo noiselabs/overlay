@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ inherit font
 
 DESCRIPTION="The Google Font Directory"
 HOMEPAGE="http://code.google.com/p/googlefontdirectory/"
-SRC_URI="http://distfiles.noiselabs.org/${P}.tar.bz2"
+SRC_URI="http://gdriv.es/noiselabs/distfiles/${P}.tar.bz2"
 
 LICENSE="OFL-1.1 Apache-2.0"
 SLOT="0"

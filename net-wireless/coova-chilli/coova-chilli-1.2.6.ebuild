@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,8 +9,7 @@ inherit autotools eutils
 MY_PN="CoovaChilli"
 DESCRIPTION="CoovaChilli is an open-source software access controller, based on the ChilliSpot project"
 HOMEPAGE="http://www.coova.org/CoovaChilli"
-SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz
-		 http://distfiles.noiselabs.org/${P}.tar.gz"
+SRC_URI="http://ap.coova.org/chilli/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

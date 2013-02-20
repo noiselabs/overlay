@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,7 +11,7 @@ MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Asterisk GUI."
 HOMEPAGE="http://www.digium.com/"
-SRC_URI="http://distfiles.noiselabs.org/${MY_P}.tar.bz2"
+SRC_URI="http://gdriv.es/noiselabs/distfiles/${MY_P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
