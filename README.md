@@ -36,7 +36,7 @@ Available packages
 Authors
 -------
 
-Vítor Brandão - <noisebleed@noiselabs.org> ~ [twitter.com/noiselabs](http://twitter.com/noiselabs) ~ [blog.noiselabs.org](http://blog.noiselabs.org)
+Vítor Brandão - <vitor@noiselabs.org> ~ [twitter.com/noiselabs](http://twitter.com/noiselabs) ~ [blog.noiselabs.org](http://blog.noiselabs.org)
 
 See also the list of [contributors](https://github.com/noiselabs/overlay/contributors) who participated in this project.
 
