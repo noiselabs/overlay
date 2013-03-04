@@ -58,7 +58,6 @@ src_configure() {
 	econf \
 		--enable-acceptlanguage \
 		--enable-binstatusfile \
-		--enable-bonjour \
 		--enable-chilliredir \
 		--enable-chilliproxy \
 		--enable-chilliscript \
