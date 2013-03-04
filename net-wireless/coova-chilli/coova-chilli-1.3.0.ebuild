@@ -74,7 +74,7 @@ src_configure() {
 		--enable-inspect \
 		--enable-ipwhitelist \
 		--enable-proxyvsa \
-		--enable-l2tpppp
+		--enable-l2tpppp \
 		--enable-layer3 \
 		--enable-libjson \
 		--enable-location \
@@ -94,7 +94,7 @@ src_configure() {
 		--enable-redirinject \
 		--enable-uamdomainfile \
 		--enable-useragent \
-		--with-avl
+		--with-avl \
 		$(use_with curl ) \
 		--with-lookup3 \
 		$(use_with mmap ) \
