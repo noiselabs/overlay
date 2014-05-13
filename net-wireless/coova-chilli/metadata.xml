@@ -3,6 +3,7 @@
 <pkgmetadata>
 <herd></herd>
 <use>
+	<flag name="chilliredir">Enable support for redir server. Required for uamregex</flag>
     <flag name="cyassl">Enable support for CyaSSL (lightweight SSL/TLS library targeted at embedded and RTOS environments)</flag>
 	<flag name="debug">Enable verbose debugging</flag>
 	<flag name="embedded">Disable larger limits for use with embedded systems</flag>
